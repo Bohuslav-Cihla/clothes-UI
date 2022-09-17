@@ -1,0 +1,95 @@
+<div class="page-header">
+    <div class="container">
+        <h1>view product</h1>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row top-row">
+        <div class="col-xs-12 row end-xs">
+            <a routerLink="/products" color="primary" mat-raised-button>
+                <mat-icon>chevron_left</mat-icon>
+                Go Back
+            </a>
+        </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-xs-6">
+        <!-- Player Details -->
+        <form #playerDetailsForm="ngForm">
+          <div class="row">
+            <div class="col-xs-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Number</mat-label>
+                <input type="text" matInput [(ngModel)]="product.number" name="number">
+              </mat-form-field>
+            </div>
+            <div class="col-xs-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Product type</mat-label>
+                <input type="text" matInput [(ngModel)]="product.clothesType.name" name="productType">
+              </mat-form-field>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-xs-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input type="number" matInput [(ngModel)]="product.price" name="price">
+                </mat-form-field>
+            </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Size</mat-label>
+              <input type="text" matInput [(ngModel)]="product.size" name="size">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6" *ngIf="product.invoice">
+            <mat-form-field appearance="outline">
+              <mat-label>Invoice</mat-label>
+              <input type="text" matInput [(ngModel)]="product.invoice.number" name="invoice" disabled>
+            </mat-form-field>
+          </div>
+        </div>
+
+  
+        <!-- <div class="row">
+          <div class="col-xs-12">
+            <div class="row between-xs" *ngIf="!isNewPlayer">
+              <button mat-raised-button color="primary" (click)="onUpdate()">Save</button> -->
+              <!-- <button mat-raised-button color="warn" (click)="onDelete()">Delete</button> -->
+            <!-- </div>
+            <div class="row between-xs" *ngIf="isNewPlayer">
+              <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+            </div>
+          </div>
+        </div> -->
+  
+        </form>
+      </div>
+  
+      <!-- <div class="col-xs-6">
+        <div class="row center-xs">
+          <div class="image-container">
+            <img [src]="displayProfileImageUrl" alt="Profile Image">
+          </div>
+        </div>
+        <div class="row">
+  
+          <div class="col-xs-12 center-xs mt-1" *ngIf="!isNewPlayer">
+            <input hidden type="file" #imageUpload (change)="uploadImage($event)">
+            <button mat-raised-button color="primary" (click)="imageUpload.click()">Change Image</button>
+          </div>
+        </div>
+      </div> -->
+  
+    </div>
+  </div>
+  
+  
