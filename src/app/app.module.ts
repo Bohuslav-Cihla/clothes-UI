@@ -50,13 +50,17 @@ import { MatTableModule } from '@angular/material/table';
 import { TopNavComponent } from './layout/top-nav/top-nav.component';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { ViewProductComponent } from './products/view-product/view-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    ProductsComponent
+    ProductsComponent,
+    InvoicesComponent,
+    ViewProductComponent
   ],
   imports: [
     FormsModule,

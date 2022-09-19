@@ -1,0 +1,61 @@
+<p>products works!</p>
+<div class="container">
+    <div clas="row end-xs">
+        <div class="col-xs-12">
+            <input type="text" class="search-input" placeholder="Search invoice"
+            [(ngModel)] = "filterString"
+            (keyup)="filterInvoices()"
+            >
+        </div>
+    </div>
+    <div class="mat-elevation-z8">
+        <table mat-table matSort [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- number Column -->
+            <ng-container matColumnDef="number">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+            </ng-container>
+
+            <!-- delivery Column -->
+            <ng-container matColumnDef="Shop">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Shop </th>
+              <td mat-cell *matCellDef="let element"> {{element.customer?.shopName}} </td>
+            </ng-container>
+          
+            <!-- type Column -->
+            <ng-container matColumnDef="createdDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> created </th>
+              <td mat-cell *matCellDef="let element"> {{element.createdDate | date: 'dd-MM-yyyy'}} </td>
+            </ng-container>
+          
+            <!-- description Column -->
+            <ng-container matColumnDef="dueDate">
+              <th mat-header-cell *matHeaderCellDef> due Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.dueDate | date: 'dd-MM-yyyy'}} </td>
+            </ng-container>
+          
+            <!-- size Column -->
+            <ng-container matColumnDef="isPaid">
+              <th mat-header-cell *matHeaderCellDef> is Paid </th>
+              <td mat-cell *matCellDef="let element"> {{element.isPaid}} </td>
+            </ng-container>
+            
+              <!-- price Column -->
+              <ng-container matColumnDef="note">
+                <th mat-header-cell *matHeaderCellDef> note </th>
+                <td mat-cell *matCellDef="let element"> {{element.note}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+          <mat-paginator [length]="100" [pageSizeOptions]="[10, 50, 100, 500, 1000]" aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>
+

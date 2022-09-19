@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../models/api-models/product.model';
+import { Invoice } from '../models/api-models/invoice.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
-
+export class InvoicesService {
   private baseApiUrl = 'https://localhost:44380';
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllProducts(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.baseApiUrl + '/api/Product/GetAllProducts');
+  getAllProducts(): Observable<Invoice[]>{
+    return this.httpClient.get<Invoice[]>(this.baseApiUrl + '/api/Invoice/GetAllInvoices');
   }
 }

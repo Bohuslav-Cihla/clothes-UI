@@ -1,4 +1,5 @@
 import { ClothesType } from "./clothesType.model";
+import { Invoice } from "./invoice.model";
 
 export interface Product {
     id: string,
@@ -8,16 +9,16 @@ export interface Product {
     shear: string,
     size: string,
     isSold: boolean,
-    createdDate: Date,
+    createdDate: string,
     createdBy: string,
-    soldDate: Date,
+    soldDate: string,
     soldBy: string,
-    deletedDate: Date,
+    deletedDate: string,
     deletedBy: string,
     note: string,
     imageUrl: string,
     clothesType: ClothesType,
     clothesTypeId: string;
     deliveryNoteId: string,
-    invoice: string;
+    invoice: Invoice;
 }
