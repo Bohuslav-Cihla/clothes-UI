@@ -60,7 +60,7 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
     TopNavComponent,
     ProductsComponent,
     InvoicesComponent,
-    ViewProductComponent
+    ViewProductComponent,
   ],
   imports: [
     FormsModule,

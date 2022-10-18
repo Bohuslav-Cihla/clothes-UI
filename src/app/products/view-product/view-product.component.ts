@@ -32,6 +32,17 @@ export class ViewProductComponent implements OnInit {
     },
     clothesTypeId: '',
     deliveryNoteId: '',
+    deliveryNote:{
+      number: 0,
+      customerId: '',
+      id: '',
+      createdBy: '',
+      createdDate: '',
+      updatedBy: '',
+      updateDate: '',
+      deletedBy: '',
+      deletedDate: ''
+    },
     invoice:{
       id: '',
       number: 0,

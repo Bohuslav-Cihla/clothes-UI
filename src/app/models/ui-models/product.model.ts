@@ -1,4 +1,5 @@
 import { ClothesType } from "./clothesType.model";
+import { DeliveryNote } from "./deliveryNote.model";
 import { Invoice } from "./invoice.model";
 
 export interface Product {
@@ -20,5 +21,6 @@ export interface Product {
     clothesType: ClothesType,
     clothesTypeId: string;
     deliveryNoteId: string,
+    deliveryNote: DeliveryNote,
     invoice: Invoice;
 }
