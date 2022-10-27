@@ -19,8 +19,9 @@ export interface Product {
     note: string,
     imageUrl: string,
     clothesType: ClothesType,
-    clothesTypeId: string;
+    clothesTypeId: string,
     deliveryNoteId: string,
-    deliveryNote: DeliveryNote,
-    invoice: Invoice;
+    deliveryNote: DeliveryNote | null | undefined,
+    invoiceId: string,
+    invoice: Invoice| null | undefined,
 }

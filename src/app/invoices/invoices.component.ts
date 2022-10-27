@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Invoice } from '../models/api-models/invoice.model';
-import { InvoicesService } from './invoice.service';
+import { InvoiceService } from './invoice.service';
 
 @Component({
   selector: 'app-invoice',
@@ -19,11 +19,11 @@ export class InvoicesComponent implements OnInit {
   @ViewChild(MatSort) matSort!: MatSort;
   filterString = '';
 
-  constructor(private invoicesService: InvoicesService) { }
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
     // Fetch Products
-    this.invoicesService.getAllProducts()
+    this.invoiceService.getAllInvoices()
     .subscribe(
       (successResponse) => {
         this.invoices = successResponse;

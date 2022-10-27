@@ -1,23 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+/* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*/
 
 table{
     width: 100%;
 }
 
-.search-input {
-    outline: 0;
-    border: 1px solid #CCC;
-    padding: 8px 10 px;
-    border-radius: 3px;
+.page-header h1 {
+    padding: 16px 0;
+    margin: 0;
 }
 
-.search-input:active{
-    border: 1px solid #BBB;
+.ml-1 {
+    margin-left: 1em !important;
 }
 
-.search-input:focus{
-    border: 1px solid #AAA;
+.mt-1 {
+    margin-top: 1em !important;
 }

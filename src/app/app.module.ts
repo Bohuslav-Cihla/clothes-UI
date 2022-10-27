@@ -52,6 +52,8 @@ import { ProductsComponent } from './products/products.component';
 import { FormsModule } from '@angular/forms';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
+import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
+import { DeliveryNoteComponent } from './delivery-note/delivery-note.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { ViewProductComponent } from './products/view-product/view-product.compo
     ProductsComponent,
     InvoicesComponent,
     ViewProductComponent,
+    ClothesTypeComponent,
+    DeliveryNoteComponent,
   ],
   imports: [
     FormsModule,

@@ -1,13 +1,13 @@
 <div class="page-header">
   <div class="container">
-    <h1>"test"</h1>
+    <h1>{{header}}</h1>
   </div>
 </div>
 
 <div class="container">
   <div class="row top-row">
     <div class="col-xs-12 row end-xs">
-      <a routerLink="/product" color="primary" mat-raised-button>
+      <a routerLink="/products" color="primary" mat-raised-button>
         <mat-icon>chevron_left</mat-icon>
         Go Back
       </a>
@@ -29,8 +29,14 @@
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Type</mat-label>
-              <input type="text" matInput [(ngModel)]="product.clothesType.name" name="productType" required>
-              <mat-error>Last Name is a required field</mat-error>
+              <mat-select [(ngModel)]="product.clothesTypeId" name="clothesType" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let clothesType of clothesTypeList" [value]="clothesType.id">
+                  {{clothesType.name}}
+                </mat-option>
+              </mat-select>
+              <!-- <input type="text" matInput [(ngModel)]="product.clothesType.name" name="productType" required>
+              <mat-error>Last Name is a required field</mat-error> -->
             </mat-form-field>
           </div>
           <div class="col-xs-3">
@@ -72,13 +78,23 @@
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Invoice</mat-label>
-              <input type="text" matInput [ngModel]="product.invoice.number" name="invoice">
+              <mat-select [(ngModel)]="product.invoiceId" name="invoice">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let invoice of invoiceList" [value]="invoice.id">
+                  {{invoice.number}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
           <div class="col-xs-6">
             <mat-form-field appearance="outline">
               <mat-label>Delivery Note</mat-label>
-              <input type="text" matInput [(ngModel)]="product.deliveryNote.number" name="deliveryNote">
+              <mat-select [(ngModel)]="product.deliveryNoteId" name="deliveryNote">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let deliveryNote of deliveryNoteList" [value]="deliveryNote.id">
+                  {{deliveryNote.number}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </div>
@@ -89,6 +105,18 @@
               <mat-label>Note</mat-label>
               <textarea type="test" matInput [(ngModel)]="product.note" name="note"></textarea>
             </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row between-xs" *ngIf="!isNewProduct">
+              <button mat-raised-button color="primary" (click)="onUpdate()">Save</button>
+              <button mat-raised-button color="warn">Delete</button>
+            </div>
+            <div class="row between-xs" *ngIf="isNewProduct">
+              <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+            </div>
           </div>
         </div>
       </form>
