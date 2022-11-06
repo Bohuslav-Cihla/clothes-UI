@@ -62,4 +62,21 @@ export class ProductService {
     }
     return this.httpClient.post<Product>(this.baseApiUrl + '/api/Product/AddProduct', addProductRequest);
   }
+
+  uploadImage(productId: string, file: File): Observable<any> {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('productId', productId);
+
+    const formData = new FormData();
+    formData.append("productImage", file);
+
+    return this.httpClient.post(this.baseApiUrl + '/api/Product/UploadImage', formData, {
+      params:httpParams,
+      responseType: 'text'
+    });
+  }
+
+  getImagePath(relativePath: string){
+    return `${this.baseApiUrl}/${relativePath}`;
+  }
 }

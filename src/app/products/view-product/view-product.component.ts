@@ -9,6 +9,7 @@ import { Invoice } from 'src/app/models/ui-models/invoice.model';
 import { Product } from 'src/app/models/ui-models/product.model';
 import { ProductService } from '../product.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-product',
@@ -72,6 +73,7 @@ export class ViewProductComponent implements OnInit {
 
   isNewProduct = false;
   header = '';
+  displayProductImageUrl ='';
 
   invoiceList: Invoice[] = [];
   clothesTypeList: ClothesType[] = [];
@@ -95,6 +97,7 @@ export class ViewProductComponent implements OnInit {
             // -> new Student Functionality
             this.isNewProduct = true;
             this.header = 'Add New Product';
+            this.setImage();
           } else {
             // -> Existing Student Functionality
             this.isNewProduct = false;
@@ -104,6 +107,10 @@ export class ViewProductComponent implements OnInit {
             .subscribe(
               (successResponse) => {
                 this.product = successResponse;
+                this.setImage();
+              },
+              (errorResponse) => {
+                this.setImage
               }
             );
           }
@@ -137,8 +144,10 @@ export class ViewProductComponent implements OnInit {
     this.productService.updateProduct(this.product.id, this.product)
     .subscribe(
       (successResponse) => {
-        console.log(successResponse);
         // Show a notification
+        this.snackbar.open('Product updated successfully', undefined, {
+          duration: 2000
+        });
       },
       (errorResponse) => {
         // Log it
@@ -162,5 +171,35 @@ export class ViewProductComponent implements OnInit {
         // Log it
       }
     );
+  }
+
+  uploadImage(event: any): void{
+    if(this.productId){
+      const file: File = event.target.files[0];
+      this.productService.uploadImage(this.product.id, file)
+      .subscribe(
+        (successResponse)=>{
+          this.product.imageUrl = successResponse;
+          this.setImage();
+
+          // show a notification
+          this.snackbar.open('Product Image Updated', undefined, {
+            duration: 2000
+          });
+        },
+        (errorResponse)=>{
+
+        }
+      );
+    }
+  }
+
+  private setImage(): void{
+    if(this.product.imageUrl){
+      this.displayProductImageUrl = this.productService.getImagePath(this.product.imageUrl);
+    }else{
+      // display a default
+      this.displayProductImageUrl = '/assets/product.png';
+    }
   }
 }
