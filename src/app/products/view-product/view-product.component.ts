@@ -66,7 +66,10 @@ export class ViewProductComponent implements OnInit {
       dateOfTaxPayment: '',
       isPaid: false,
       note: '',
-      customer: ''
+      customer: '',
+      sum:0,
+      products: []
+
     },
     invoiceId:'',
   };
