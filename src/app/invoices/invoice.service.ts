@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Invoice } from '../models/api-models/invoice.model';
@@ -13,5 +13,13 @@ export class InvoiceService {
 
   getAllInvoices(): Observable<Invoice[]>{
     return this.httpClient.get<Invoice[]>(this.baseApiUrl + '/api/Invoice/GetAllInvoices');
+  }
+
+  getInvoice(invoiceId: string): Observable<Invoice>{
+
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('invoiceId', invoiceId);
+    
+    return this.httpClient.get<Invoice>(this.baseApiUrl + '/api/Invoice/GetInvoiceAsync', {params:httpParams});
   }
 }

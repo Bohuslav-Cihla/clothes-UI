@@ -1,0 +1,55 @@
+<div class="page-header">
+  <div class="container">
+    <h1>Invoice Detail</h1>
+  </div>
+</div>
+  
+  <div class="container">
+    <div class="row top-row">
+      <div class="col-xs-12 row end-xs">
+        <a routerLink="/invoices" color="primary" mat-raised-button>
+          <mat-icon>chevron_left</mat-icon>
+          Go Back
+        </a>
+      </div>
+    </div>
+  
+    <div class="row">
+     <div class="col-xs-4">
+        <!-- Invoice Details -->
+        <form #invoiceDetailsForm="ngForm">
+            <div class="row">
+              <div class="col-xs-3">
+               <mat-form-field appearance="outline">
+                 <mat-label>Number</mat-label>
+                 <input type="text" matInput [ngModel]="invoice.number" name="number" readonly>
+                 <mat-error>number</mat-error>
+               </mat-form-field>
+              </div>
+             
+              <div class="col-xs-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Shop</mat-label>
+                  <input type="text" matInput [(ngModel)]="invoice.customer.shopName" name="shop" required>
+                  <mat-error>Last Name is a required field</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-xs-3">
+               <mat-form-field appearance="outline">
+                 <mat-label>Sum</mat-label>
+                 <input type="text" matInput [(ngModel)]="invoice.sum" name="sum" required>
+                 <mat-error>Last Name is a required field</mat-error>
+               </mat-form-field>
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="col-xs-6">
+        <div class="row center-xs" *ngFor="let product of invoice.products">
+            <p>{{product.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

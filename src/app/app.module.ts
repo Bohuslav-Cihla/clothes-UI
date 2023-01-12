@@ -54,6 +54,7 @@ import { InvoicesComponent } from './invoices/invoices.component';
 import { ViewProductComponent } from './products/view-product/view-product.component';
 import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
 import { DeliveryNoteComponent } from './delivery-note/delivery-note.component';
+import { ViewInvoiceComponent } from './invoices/view-invoice/view-invoice.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { DeliveryNoteComponent } from './delivery-note/delivery-note.component';
     ViewProductComponent,
     ClothesTypeComponent,
     DeliveryNoteComponent,
+    ViewInvoiceComponent,
   ],
   imports: [
     FormsModule,

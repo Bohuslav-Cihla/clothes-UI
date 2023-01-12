@@ -13,7 +13,7 @@ import { InvoiceService } from './invoice.service';
 export class InvoicesComponent implements OnInit {
 
   invoices: Invoice[] = [];
-  displayedColumns: string[] = ['number', 'Shop', 'createdDate', 'dueDate', 'isPaid', 'sum'];
+  displayedColumns: string[] = ['number', 'Shop', 'createdDate', 'dueDate', 'isPaid', 'sum', 'edit'];
   dataSource: MatTableDataSource<Invoice> = new MatTableDataSource<Invoice>();
   @ViewChild(MatPaginator) matPaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;

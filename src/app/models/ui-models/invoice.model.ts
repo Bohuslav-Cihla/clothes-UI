@@ -1,3 +1,4 @@
+import { Customer } from "./customer.model";
 import { Product } from "./product.model";
 
 export interface Invoice {
@@ -9,7 +10,7 @@ export interface Invoice {
     dateOfTaxPayment: string;
     isPaid: boolean,
     note: string,
-    customer: string,
+    customer: Customer,
     sum: number,
     products: Product[]
 }
